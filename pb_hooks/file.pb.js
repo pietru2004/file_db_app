@@ -5,7 +5,6 @@ routerAdd("post", "/file", (c) => {
     const collection_name = "files"
 
     const data = $apis.requestInfo(c).data
-    console.log(JSON.stringify(data));
     if (data["filename"]==null){
         return c.redirect(307, "/error");
     }
@@ -29,7 +28,7 @@ routerAdd("post", "/file", (c) => {
         .limit(1)
         .one(file_record)
 
-        console.log(JSON.stringify(file_record));
+        //console.log(JSON.stringify(file_record));
 
         if (file_record){
             tittle=file_record.get("tittle")
@@ -49,8 +48,6 @@ routerAdd("post", "/file", (c) => {
             "link":`/api/files/${collection_name}/${recID}/${e}`
         })
     });
-    console.log(JSON.stringify(file_record.get("data")))
-    console.log(JSON.stringify(links))
 
     const html = $template.loadFiles(
         `${__hooks}/views/base/layout.html`,
