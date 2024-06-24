@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{block "title" .}}Default app title{{end}}</title>
+    <style>
+        .btn1:link, .btn1:visited {
+            background-color: white;
+            color: black;
+            border: 2px solid rgb(30, 174, 210);
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn1:hover, .btn1:active {
+            background-color: rgb(20, 122, 148);
+            color: white;
+        }
+
+        .btn2:link, .btn2:visited {
+            background-color: white;
+            color: black;
+            border: 2px solid rgb(30, 114, 210);
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn2:hover, .btn2:active {
+            background-color: rgb(24, 92, 170);
+            color: white;
+        }
+    </style>
+</head>
+<body style="background-color: gray; margin: 0px 8px;">
+    {{block "header" .}}
+        Default app header
+    {{end}}
+
+    <main style="min-height: calc(100vh - 40px);">
+        {{block "body" .}}
+            Default app body...
+        {{end}}
+    </main>
+    
+    {{block "footer" .}}
+        
+    {{end}}
+</body>
+</html>

@@ -1,0 +1,63 @@
+{{define "title"}}
+    {{.vid_tittle}}
+{{end}}
+
+{{define "body"}}
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media only screen and (min-width: 400px) {
+            .grid-container {grid-template-columns: auto auto;}
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 700px;
+            padding: 5px;
+            text-align: left;
+        }
+        p, h2 {
+            margin: 10px 10px;
+        }
+    </style>
+    <center>
+        <section>
+            {{if .authorized}}
+                <a class="btn2" style="float:right;" href="/">Return</a>
+                <h2>{{.tittle}}</h2>
+                <p>{{.desc|raw}}</p>
+    
+                <center>
+                    {{range $p := .links}} 
+                        <br>
+                        {{$p.name}}
+                        <span> | </span>
+                        <a href="{{$p.link}}" class="btn1">download</a>
+                    {{end}}
+                </center>
+            {{else}}
+                <center>
+                    <a class="headnav" href="/">Return</a>
+                </center>
+                
+                <br>
+
+                <form class="grid-container" action="/file" method="post">
+                    <label for="filename">File:</label>
+                    <input type="text" name="filename" id="filename" placeholder="File Name" required readonly value="{{.filename}}">
+                    <label for="passwd">Password:</label>
+                    <input type="password" name="passwd" id="passwd" required placeholder="File Password">
+                    <center style="grid-column: 1 / 3;">
+                        <button type="submit">Submit</button>
+                    </center>
+                </form>
+            {{end}}
+        </section>
+    </center>
+{{end}}
