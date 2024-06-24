@@ -25,9 +25,13 @@
         p, h2 {
             margin: 10px 10px;
         }
+
+        input::placeholder {
+            font-size: 18px;
+        }
     </style>
     <center>
-        <section>
+        <section style="font-size: 25px;">
             {{if .authorized}}
                 <a class="btn2" style="float:right;" href="/">Return</a>
                 <h2>{{.tittle}}</h2>
