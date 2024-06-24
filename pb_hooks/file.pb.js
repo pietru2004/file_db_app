@@ -36,7 +36,7 @@ routerAdd("post", "/file", (c) => {
             password=file_record.get("password")
         }
     } catch (error) {
-        vid_desc="File does not exist"
+        desc="File does not exist"
         const utils = require(`${__hooks}/utils.js`)
         return c.html(404, utils.get_error_page(404,"File not found..."))
     }
